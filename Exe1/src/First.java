@@ -1,12 +1,12 @@
 class Worker extends Thread
 {
    public void run() {
-	   try {
+	   /*try {
 		Thread.sleep(3000);//serve per ex3
 	} catch (InterruptedException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-	}
+	}*/
 	   System.out.println(getName() + " Thread ausiliario: Hello world!");
    }
 }
