@@ -3,7 +3,7 @@ import java.io.*;
 
 /**
  * Esempio Somma: Programma multithread in Java che esegue una 
- * funzione di somma tra due numeri interi inseriti dall’utente. 
+ * funzione di somma tra due numeri interi inseriti dallï¿½utente. 
  * Creare un thread separato per effettuare la somma e restituire
  * il risultato in una variabile (globale) condivisa con il thread
  * principale. Il thread principale deve stampare il risultato a video.
@@ -16,16 +16,16 @@ import java.io.*;
 public class Somma {
 	
 	public static void main(String[] args) {
-		//Definizione dello shared object che conterrà un intero
+		//Definizione dello shared object che conterrï¿½ un intero
 		//(vedi definizione sotto della classe involucro HoldInteger)
-		HoldInteger result = new HoldInteger(); 
+		HoldInteger result = new HoldInteger();  // oggetto condiviso --> ospita un valore intero
 		
-		//La lettura di a e b può avvenire in modo più o meno elegante, ad
+		//La lettura di a e b puï¿½ avvenire in modo piï¿½ o meno elegante, ad
 		//es. da linea di comando con:
 		//int a = Integer.parseInt(args[0]);
 	    //int b = Integer.parseInt(args[1]);
 		//oppure tramite lo stream System.in.
-		//Quì ci limitiamo ad assegnarli direttamente con:
+		//Quï¿½ ci limitiamo ad assegnarli direttamente con:
 		int a = 3;
 		int b = 5; 
 		
@@ -33,12 +33,12 @@ public class Somma {
 		//sommare ed il riferimento allo shared object in cui ci si aspetta 
 		//il risultato vengono passati come parametri al costruttore del 
 		//thread Sommatore 
-		Thread doSum = new Thread(new Sommatore(result, a, b));
+		Thread doSum = new Thread(new Sommatore(result, a, b));//creazione oggetto runnable "Sommatore" con 3 parametri, oggetto condiviso e oggetti da sommare
 		doSum.start();
 		try {
 			//Il main thread si sincronizza sulla terminazione del processo 
 			//sommatore
-			doSum.join();
+			doSum.join();//senza join il padre potrebbe avere come risultato = 0 perchÃ¨ figlio non ha ancora fatto la somma
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

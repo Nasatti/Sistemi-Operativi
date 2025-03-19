@@ -20,11 +20,11 @@ public class InterruptibleThread implements Runnable
 			/**
 			 * do some work for awhile
 			 */
-
 			if (Thread.currentThread().isInterrupted()) {
 				System.out.println("Thread figlio: I'm interrupted!");
 				break;
 			}
+			System.out.println("lavoro");	
 		}
 		// clean up and terminate
 	}

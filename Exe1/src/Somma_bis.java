@@ -1,21 +1,21 @@
 
 /**
  * Esempio Somma: Programma multithread in Java che esegue una 
- * funzione di somma tra due numeri interi inseriti dall’utente. 
+ * funzione di somma tra due numeri interi inseriti dallï¿½utente. 
  * Creare un thread separato per effettuare la somma e restituire
  * il risultato in una variabile (globale) condivisa con il thread
  * principale. Il thread principale deve stampare il risultato a video.
  * @author Patrizia Scandurra, Paolo Sangregorio
  *
  *
- *Seconda soluzione: Sommatore è dichiarata come classe interna 
- *a Somma_bis e pertanto vede (e condivide) tutto ciò che è dichiarato 
+ *Seconda soluzione: Sommatore ï¿½ dichiarata come classe interna 
+ *a Somma_bis e pertanto vede (e condivide) tutto ciï¿½ che ï¿½ dichiarato 
  *all'interno della classe Somma_bis
  */
 
 
 public class Somma_bis {
-	private int result;
+	private int result;//condiviso com t sommatore
 	
 	//Creazione e avvio del thread figlio "on the fly" per fare la somma.
 	//Il risultato viene posto direttamente dal thread figlio 
@@ -33,7 +33,7 @@ public class Somma_bis {
 	}
 	
 	
-	//Inner class:
+	//Inner class:classe annidata--> accesso a tutte le variabili della classe esterna-->sconsigliate
 	public class Sommatore implements Runnable {		
 		int a, b;
 		

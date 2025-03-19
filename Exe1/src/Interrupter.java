@@ -17,5 +17,6 @@ public class Interrupter
          try { Thread.sleep(3000); } catch (InterruptedException ie) { }
         
          worker.interrupt();
+         System.out.println(worker.isInterrupted());
     }
 }
