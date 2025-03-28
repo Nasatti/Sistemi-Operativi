@@ -3,7 +3,7 @@ public class Factory {
 
 	public static void main(String[] args) {
 		//CokeMachineIf m = new CokeMachine1();
-		CokeMachineIf m = new CokeMachine4();
+		CokeMachineIf m = new CokeMachine();
 		
 		Supplier s = new Supplier(m);
 		s.start();
