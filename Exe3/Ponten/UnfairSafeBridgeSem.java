@@ -2,6 +2,7 @@ import java.util.concurrent.Semaphore;
 
 public class UnfairSafeBridgeSem implements Bridge {
 
+	public static final int CT = 3;
 	private int nblue; 				// n. di auto blu in transito in un dato istante sul ponte
 	private int nred;  				// n. di auto rosse in transito in un dato istante sul ponte
 	private int nb_waiting; 		// n. di auto blu in attesa di entrare nel ponte
@@ -31,7 +32,7 @@ public class UnfairSafeBridgeSem implements Bridge {
 			e.printStackTrace();
 		}
 		// sezione critica
-		if (nred == 0) {	// se il ponte � sgombro, l'auto passa
+		if (nred == 0 && nblue < CT) {	// se il ponte � sgombro, l'auto passa
 			nred++;
 			rturn.release(); 		// alziamo la sbarra
 			System.out.println(Thread.currentThread().getName() + " sta passando; nred: " +
